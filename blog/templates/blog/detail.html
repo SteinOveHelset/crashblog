@@ -7,9 +7,16 @@
     <div class="hero-body">
         <div class="container">
             <section class="section">
+                {% if post.image %}
+                    <figure class="image mb-6">
+                        <img src="{{ post.image.url }}">
+                    </figure>
+                {% endif %}
+                
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         <div class="content is-medium">
+                            
                             <h2 class="subtitle is-4">{{ post.created_at|timesince }} ago</h2>
                             <h1 class="title">{{ post.title }}</h1>
                             <p><strong>{{ post.intro }}</strong></p>

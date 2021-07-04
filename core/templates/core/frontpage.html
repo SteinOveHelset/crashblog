@@ -12,6 +12,12 @@
                             {% for post in posts %}
                                 <div class="content is-medium">
                                     <a href="{% url 'post_detail' post.category.slug post.slug %}">
+                                        {% if post.image %}
+                                            <figure class="image">
+                                                <img src="{{ post.image.url }}">
+                                            </figure>
+                                        {% endif %}
+
                                         <h2 class="subtitle is-4">{{ post.created_at|timesince }} ago</h2>
                                         <h1 class="title">{{ post.title }}</h1>
                                         <p>{{ post.intro }}</p>
